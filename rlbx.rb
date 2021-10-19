@@ -9,4 +9,11 @@ class Rlbx
 			--format \"{{.ID}}	{{.Names}}	{{.Created}}	{{.Image}}	{{.Status}}\""
     `#{list_command}`
   end
+	
+  def self.rm(name)
+    list_command = "podman \"#{LL}\" ps -af label=#{LABEL}=true --format \"{{.Names}}\""
+    `podman rm #{name}` if `#{list_command}`.split("\n").member?(name)
+    # puts `#{list_command}`.split("\n")
+  end
+
 end
