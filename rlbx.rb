@@ -24,7 +24,6 @@ class Rlbx
                "--user root:root",
                "--tz=local",
                "--volume \"$XDG_RUNTIME_DIR:$XDG_RUNTIME_DIR\"",
-               #        $([ -n "$bindhome" ] && echo "--volume $HOME:/home/$user:rslave") \
                "#{bindcommand}",
                "--volume /run/dbus/system_bus_socket:/run/dbus/system_bus_socket",
                "--volume /etc:/run/hostetc",
