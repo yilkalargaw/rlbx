@@ -58,5 +58,9 @@ class Rlbx
     list_command = "podman \"#{LL}\" ps -af label=#{LABEL}=true --format \"{{.Names}}\""
     `podman rm #{name}` if `#{list_command}`.split("\n").member?(name)
   end
+	
+  def self.enter(name)
+    exec("podman exec -it --user=\"$USER\" -e DISPLAY -e LANG -w /home/\"$USER\" #{name} /bin/bash -l")
+  end
 
 end
