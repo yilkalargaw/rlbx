@@ -4,7 +4,7 @@ class Rlbx
   LL = '--log-level=error'.freeze # do i need logs
   IMG = 'docker.io/library/alpine:latest'.freeze # default image
 
-  def self.create(img=IMG, name=nil, hostname=nil, bindhome=true)
+  def self.create(img = IMG, name = nil, hostname = nil, bindhome = true)
     bindcommand = (bindhome ? '--volume $HOME:/home/$user:rslave' : '')
     name = "#{IMG.split('/').last.split(':').first}-#{PROG}" if name.nil? || name.empty?
     hostname = PROG.dup if hostname.nil? || hostname.empty?
